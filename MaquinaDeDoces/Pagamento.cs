@@ -122,11 +122,6 @@ namespace MaquinaDeDoces
             return "Escolha uma das opções abaixo: " + "\n1. Dinheiro \n2. Cartão";
         }//fim do método
 
-        public void ColetarFormaDePagamento(short opcao)
-        {
-            ModificarFormaPagamento = opcao;
-        }//fim do coletar
-
         public void EfetuarPagamentoDinheiro(double entradaPagamento, double valorProduto)
         {
             string resp = "";
@@ -140,11 +135,10 @@ namespace MaquinaDeDoces
                 ModificarDataHora = DateTime.Now;//Pegar a data e hora da transação
                 ModificarTrocoMaquina += valorProduto;
                 VerificarTroco(entradaPagamento, valorProduto);
-                imprimir();  
             }
         }//fim do método Efetuar Pagamento
 
-        public void EfetuarPagamentoCartao(double entradaPagamento, double valorProduto, int codCartao, short bandeiraCartao)
+        public void EfetuarPagamentoCartao(double valorProduto, int codCartao, short bandeiraCartao)
         {
             ModificarCodigo++;
             ModificarValorTotal = valorProduto;
@@ -152,7 +146,6 @@ namespace MaquinaDeDoces
             ModificarDataHora = DateTime.Now;//Pegar a data e hora da transação
             ModificarBandeiraCartao = bandeiraCartao;
             ModificarCodigoCartao = codCartao;
-            imprimir();
         }//fim do efetuarPagamento Cartão
 
         //Método Imprimir
